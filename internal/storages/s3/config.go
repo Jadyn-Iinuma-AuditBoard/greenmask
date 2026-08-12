@@ -41,6 +41,7 @@ type Config struct {
 	ForcePathStyle   bool   `mapstructure:"force_path_style"`
 	UseAccelerate    bool   `mapstructure:"use_accelerate"`
 	NoVerifySsl      bool   `mapstructure:"no_verify_ssl"`
+	SSE              string `mapstructure:"sse"`
 }
 
 func NewConfig() *Config {

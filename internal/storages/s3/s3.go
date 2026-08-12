@@ -276,7 +276,10 @@ func (s *Storage) PutObject(ctx context.Context, filePath string, body io.Reader
 		StorageClass: aws.String(s.config.StorageClass),
 	}
 
-	// TODO: Implement server side encryption
+	if s.config.SSE != "" {
+		ui.ServerSideEncryption = aws.String(s.config.SSE)
+	}
+
 	if _, err := s.uploader.UploadWithContext(ctx, ui); err != nil {
 		return fmt.Errorf("s3 object uploading error: %w", err)
 	}

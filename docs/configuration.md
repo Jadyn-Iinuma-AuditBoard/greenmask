@@ -135,6 +135,7 @@ four storage `type` options are supported: `directory`, `s3`, `azure` and `ssh`.
     * `use_list_objects_v1` — use the old v1 `ListObjects` request instead of v2 one
     * `force_path_style` — force the request to use path-style addressing (e. g., `http://s3.amazonaws.com/BUCKET/KEY`) instead of virtual hosted bucket addressing (e. g., `http://BUCKET.s3.amazonaws.com/KEY`)
     * `use_accelerate` — enable S3 Accelerate feature
+    * `sse` — server-sider encryption to upload dump data with encryption header. One of `AES256`, `aws:kms`, or `aws:kms:dsse`
 
     ```yaml title="s3 storage config example for Minio running in Docker"
     storage:  
