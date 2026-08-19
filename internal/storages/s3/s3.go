@@ -280,6 +280,12 @@ func (s *Storage) PutObject(ctx context.Context, filePath string, body io.Reader
 		ui.ServerSideEncryption = aws.String(s.config.SSE)
 	}
 
+	if s.config.SSE == "aws:kms" || s.config.SSE == "aws:kms:dsse" {
+		if s.config.KMSKeyARN != "" {
+			ui.SSEKMSKeyId = aws.String(s.config.KMSKeyARN)
+		}
+	}
+
 	if _, err := s.uploader.UploadWithContext(ctx, ui); err != nil {
 		return fmt.Errorf("s3 object uploading error: %w", err)
 	}

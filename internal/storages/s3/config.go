@@ -42,6 +42,7 @@ type Config struct {
 	UseAccelerate    bool   `mapstructure:"use_accelerate"`
 	NoVerifySsl      bool   `mapstructure:"no_verify_ssl"`
 	SSE              string `mapstructure:"sse"`
+	KMSKeyARN        string `mapstructure:"kms_key_arn"`
 }
 
 func NewConfig() *Config {
